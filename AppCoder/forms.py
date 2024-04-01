@@ -12,5 +12,6 @@ class Profesor_formulario(forms.Form):
 class Alumno_formulario(forms.Form):
     nombre = forms.CharField(max_length = 20)
     apellido = forms.CharField(max_length = 20) 
-    legajo = forms.IntegerField()
+    email = forms.EmailField(max_length = 50)
+    contraseña = forms.CharField(max_length = 30)
     

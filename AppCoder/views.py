@@ -10,9 +10,44 @@ from .forms import Alumno_formulario
 
 
 # Create your views here.
-def inicio(request):
-    return render(request , "inicio.html")
+
+# model Alumno
+
+def login(request):
+    return render(request , "login.html")
+
+def alta_alumno(request , nombre , apellido , email , contraseña):
+    alumno = Alumno(nombre = nombre.title() , apellido = apellido.title() , email = email , contraseña = contraseña)
+    alumno.save()
+    texto = f"Se guardó en la Base de Datos el Alumno: {alumno.nombre} {alumno.apellido}"
+    return HttpResponse(texto)
+
+
+def ver_alumnos(request):
+    alumnos = Alumno.objects.all()
+    diccionario = {"alumnos" : alumnos}
+    plantilla = loader.get_template("alumnos.html")
+    documento = plantilla.render(diccionario)
+    return HttpResponse(documento)
+
+
+def alumno_formulario(request):
     
+    if request.method == "POST":
+        
+        mi_formulario = Alumno_formulario(request.POST)
+        
+        if mi_formulario.is_valid():
+            datos = mi_formulario.cleaned_data
+            alumno = Alumno(nombre = datos["nombre"].title() , apellido = datos["apellido"].title() , email = datos["email"] , contraseña = datos["contraseña"])
+            alumno.save()
+            
+            return render(request , "form_alumno.html")
+            
+    return render(request , "form_alumno.html") 
+    
+def inicio(request):
+    return render(request , "inicio.html")  
     
 def alta_curso(request, nombre , camada):
     curso = Curso(nombre = nombre.title() , camada = camada)
@@ -65,38 +100,6 @@ def buscar(request):
         
         return HttpResponse("Ingrese el nombre del curso")
     
-# model Alumno
-
-def alta_alumno(request , nombre , apellido , legajo):
-    alumno = Alumno(nombre = nombre.title() , apellido = apellido.title() , legajo = legajo)
-    alumno.save()
-    texto = f"Se guardó en la Base de Datos el Alumno: {alumno.nombre} {alumno.apellido} ({alumno.legajo})"
-    return HttpResponse(texto)
-
-
-def ver_alumnos(request):
-    alumnos = Alumno.objects.all()
-    diccionario = {"alumnos" : alumnos}
-    plantilla = loader.get_template("alumnos.html")
-    documento = plantilla.render(diccionario)
-    return HttpResponse(documento)
-
-
-def alumno_formulario(request):
-    
-    if request.method == "POST":
-        
-        mi_formulario = Alumno_formulario(request.POST)
-        
-        if mi_formulario.is_valid():
-            datos = mi_formulario.cleaned_data
-            alumno = Alumno(nombre = datos["nombre"].title() , apellido = datos["apellido"].title() , legajo = datos["legajo"])
-            alumno.save()
-            
-            return render(request , "form_alumno.html")
-            
-    return render(request , "form_alumno.html") 
-
 
 def alta_profesor(request , nombre , apellido , curso):
     profesor = Profesor(nombre = nombre.title() , apellido = apellido.title() , curso = curso.title())

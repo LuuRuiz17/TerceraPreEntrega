@@ -20,9 +20,10 @@ html {
 }
 
 body{
-    background-color: var(--dos);
+    background-color: var(--uno);
     color: white;
     width: 100%;
+    height: 100vh;
     font-size: 20px;
 }
 
@@ -119,7 +120,7 @@ a{
 }
 
 .titulo_curso{
-    color: #000000;
+    color: white;
     width: 100%;
     text-align: center;
     font-weight: bold;
@@ -262,7 +263,6 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #27A4F2;
 }
 
 .formulario{
@@ -270,7 +270,8 @@ main{
     font-weight: bold;
     font-size: 1.5vw;
     width: 50%;
-    background-image: url('/static/AppCoder/assets/img/fondo-form6.jpg');
+    /* background-image: url('/static/AppCoder/assets/img/fondo-form6.jpg'); */
+    background-color: rgba(0, 0, 0, 0.3);
     background-repeat: no-repeat;
     background-size: cover;
     padding-left: 3vw;
@@ -291,7 +292,7 @@ main{
     position: absolute; 
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
+    background-color: rgba(0, 0, 0, 0.1); 
     backdrop-filter: blur(8px); 
     z-index: 1;
 }
@@ -329,4 +330,190 @@ main{
 
 .prueba{
     color: white;
+}
+
+.campos_dos{
+    width: 100%;
+    z-index: 2;
+}
+
+.campos_dos input{
+    width: 100%;
+    padding: 1.2vw;
+    margin-top: 2.5vh;
+    border-radius: 5px;
+    border: none;
+}
+
+.container-btn-dos{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.container-btn-dos .btn{
+    width: 100%;
+    padding: 1vw;
+    margin-top: -1vh;
+    font-size: 1.5vw;
+    border-radius: 5px;
+}
+
+.container-form-dos{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    margin-top: 5vh;
+}
+
+.container-form-dos p{
+    font-size: 2vw;
+}
+
+.container-campos{
+    display: grid;
+    align-items: center;
+    margin-bottom: 1vh;
+}
+
+.container-campos p{
+    margin-top: 1.5vh;
+}
+
+.formulario-dos{
+    width: 50%;
+    height: 480px;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    display: grid;
+    grid-template-rows: 1fr 1fr .8fr;
+    align-items: center;
+    background-color: rgba(89, 88, 88, 0.5);
+    border-radius: 8px;
+    z-index: 3;
+    margin-top: 5vh;
+    /* margin: auto; */
+}
+
+.titulo_login{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute; 
+    z-index: 2;
+    color: white;
+    font-size: 5.5vh;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.container_titulo_login{
+    margin-top: 5vh;
+    padding-bottom: 5vh;
+}
+
+.container_registro{
+    width: 100%;
+    height: 12vh;
+    font-size: 2vw;
+    margin-top: 3vh;
+    text-align: center;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+    margin-top: 10vh;
+}
+
+.registro{
+    width: 100%;
+    /* text-decoration: underline; */
+    font-size: 2vw;
+}
+
+.registro:hover{
+    color: #91E0F2;
+}
+
+.body_login{
+    width: 100%;
+    height: 100vh;
+    background-image: url("/static/AppCoder/assets/img/sound.jpg");
+}
+
+.body_login::before{
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    content: "";
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.container-all{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: 3;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr;
+}
+
+@media (max-width: 780px) {
+    .titulo_login{
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .formulario-dos{
+        width: 80%;
+        height: 350px;
+        margin-top: 0;
+    }
+
+    .campos_dos p{
+        font-size: 20px;
+    }
+
+    .container-btn-dos .btn{
+        font-size: 3vw;
+    }
+
+    .titulo_login{
+        font-size: 20px;
+    }
+
+    .container-all{
+        height: 100vh;
+    }
+
+    .container-btn-dos .btn{
+        padding: 2vw;
+    }
+
+    .container-form-dos{
+        height: 400px;
+        display: flex;
+        align-items: center;
+    }
+
+    .container_registro{
+        height: 5vh;
+        margin-top: 10vh;
+        font-size: 20px;
+    }
+
+    .registro{
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
 }

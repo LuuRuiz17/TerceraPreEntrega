@@ -10,7 +10,8 @@ class Curso(models.Model):
 class Alumno(models.Model):
     nombre = models.CharField(max_length = 20)
     apellido = models.CharField(max_length = 20) 
-    legajo = models.IntegerField()
+    email = models.EmailField(max_length = 30 , default='default_value')
+    contraseña = models.CharField(max_length=255, default='default_value') 
     
 class Profesor(models.Model):
     nombre = models.CharField(max_length = 20)

@@ -1,0 +1,52 @@
+{% load static %}
+
+<link href="{% static 'AppCoder/css/mi_styles.css' %}" rel="stylesheet"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="body_login">
+    <div class="container_all">
+        <div class="container_titulo_login">
+            <h1 class="titulo_login">¡Bienvenido a CoderHouse!</h1>
+        </div>
+        
+        <div class="container-form-dos">
+            <form method="POST" class="formulario-dos">
+                {% csrf_token %}
+        
+                <div class="campos_dos">
+                    <p>E-mail:</p>
+                    <input type = "email" name = "email" placeholder = "Ingresa tu email" required>
+                </div>
+        
+                <div class="campos_dos">
+                    <p>Contraseña:</p>
+                    <input type="password" name = "contraseña" placeholder="Ingresa tu contraseña" required>
+                </div>
+            
+                <div class="container-btn-dos">
+                    <button class="btn">Ingresar</button>
+                </div>
+            
+            </form>
+        </div>
+        
+        <div class="container_registro">
+            <div>
+                <p>¿Aún no tienes una cuenta?</p>
+            </div>
+    
+            <div>
+                <a href="{% url 'alta_alumno' %}"class="registro">Registrarme</a>
+            </div>
+    
+        </div>
+    </div>
+
+    
+</body>
+</html>
