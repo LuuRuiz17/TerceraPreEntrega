@@ -5,10 +5,11 @@ urlpatterns = [
    path("" , views.inicio , name = "inicio"),
      
     # model Curso
+    
     path("alta_curso" , views.curso_formulario, name="alta_curso"),  
     path("ver_cursos" , views.ver_cursos , name = "cursos"),
-    path("buscar_curso" , views.buscar_curso),
-    path("buscar" , views.buscar),
+    path("buscar_curso" , views.buscar_curso , name= "buscar_curso"),
+    path("buscar" , views.buscar , name = "buscar"),
     
     # model Alumno
 

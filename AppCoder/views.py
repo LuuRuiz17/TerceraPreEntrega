@@ -87,7 +87,7 @@ def curso_formulario(request):
 # Cleaned data es un diccionario que tiene los datos del formulario limpios, se asegura de que los datos son correctos. 
 
 def buscar_curso(request):
-    return render(request , "buscar_curso.html")
+    return render(request , "inicio.html")
 
 def buscar(request):
     if request.GET["nombre"]:
@@ -98,7 +98,8 @@ def buscar(request):
         
     else:
         
-        return HttpResponse("Ingrese el nombre del curso")
+        # return HttpResponse("Ingrese el nombre del curso")
+        return render(request , "inicio.html")
     
 
 def alta_profesor(request , nombre , apellido , curso):

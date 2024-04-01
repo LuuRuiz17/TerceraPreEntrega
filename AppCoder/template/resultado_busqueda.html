@@ -6,13 +6,21 @@
 
     {% if cursos %}
 
-        <ul>
+    <div class="container_resultados">
+        <div class="container_resultado_curso">
             {% for curso in cursos %}
-                <li>Nombre: {{curso.nombre}}</li>
-                <li>Camada: {{curso.camada}}</li>
+                <div class="resultado_curso">
+                    <p>{{curso.nombre}}</p>
+                    <p>Comisión: {{curso.camada}}</p>
+                    <div class="container_btn_curso">
+                        <input type="submit" value="Ver Curso" class="btn-curso">
+                    </div>
+                </div>
 
             {% endfor %}
-        </ul>
+        </div>
+    </div>
+
         
     {% else %}
         
