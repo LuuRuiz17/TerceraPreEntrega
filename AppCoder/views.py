@@ -113,6 +113,7 @@ def ver_profesores(request):
 
 
 def profesor_formulario(request):
+    
     if request.method == "POST":
         
         mi_formulario = Profesor_formulario(request.POST)
@@ -126,6 +127,7 @@ def profesor_formulario(request):
             return render(request, "form_profesores.html")
         
     else:
+        
         cursos = Curso.objects.all()  
         return render(request, "form_profesores.html", {"cursos": cursos})
     
