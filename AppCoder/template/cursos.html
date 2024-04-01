@@ -1,0 +1,36 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+    <!-- {% for n in cursos %}
+        <p>{{n.nombre}}</p>
+        <p>{{n.camada}}</p>
+    {% endfor %} -->
+
+    <h1 class="titulo_curso">Cursos</h1>
+    <div class="container-table">
+        <table class="table">
+            <thead>
+                <tr class="titulo-table">
+                    <th>id</th>
+                    <th>Nombre</th>
+                    <th>Camada</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for n in cursos %}
+                <tr>
+                    <th scope="row">{{n.id}}</th>
+                    <th>{{n.nombre}}</th>
+                    <th>{{n.camada}}</th>
+                </tr>
+                {% endfor %}
+            </tbody>
+    
+        </table>
+    </div>
+
+
+{% endblock %}

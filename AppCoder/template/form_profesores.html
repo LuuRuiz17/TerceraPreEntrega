@@ -1,0 +1,38 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+
+<div class="container-form">
+    <form action="{% url 'alta_profesor' %}" method="POST" class="formulario">
+        {% csrf_token %}
+        <div class="campos">
+            <p>Nombre:</p>
+            <input type="text" name = "nombre" placeholder="Ingresa tu nombre" required>
+        </div>
+    
+        <div class="campos">
+            <p>Apellido:</p>
+            <input type="text" name="apellido" placeholder="Ingresa tu apellido" required>
+        </div>
+
+        <div class="campos">
+            <label for="curso">Selecciona un Curso:</label>
+            <select class="selector" id="curso" name="curso">
+                {% for curso in cursos %}
+                    <option value="{{ curso.id }}">{{ curso.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    
+        <div class="container-btn">
+            <button class="btn">Enviar</button>
+        </div>
+    
+    </form>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<!-- min 45 Playground 3 -->
+
+<div class="container-form">
+    <form action="{% url 'alta_curso' %}" method="POST" class="formulario">
+        {% csrf_token %}
+        <div class="campos">
+            <p>Nombre:</p>
+            <input type="text" name = "nombre" placeholder="Ingresa el nombre del curso" required>
+        </div>
+    
+        <div class="campos">
+            <p>Comisión:</p>
+            <input type="text" name="camada" placeholder="Ingresa la comisión" required>
+        </div>
+    
+        <div class="container-btn">
+            <button class="btn">Enviar</button>
+        </div>
+    
+    </form>
+</div>
+
+
+{% endblock %}

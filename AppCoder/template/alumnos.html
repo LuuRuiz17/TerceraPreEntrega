@@ -1,0 +1,30 @@
+
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+
+<main>
+    <div class="container-alumnos">
+
+    {% for n in alumnos %}
+                <div class="card">
+                    <div class="alumno">
+                        <img class="perfil" src="{% static 'AppCoder/assets/img/alumno.png' %}" alt="">
+                    </div>
+                    <div class="card-body">
+                        <h4>{{n.nombre}} {{n.apellido}}</h4>
+                        <p>{{n.legajo}}</p>                        
+                    </div>
+                    <div container-btn>
+                        <a class="btn">Ver Alumno</a>
+                    </div>
+                </div>    
+    {% endfor %}
+
+    </div>
+</main>
+
+{% endblock %}
