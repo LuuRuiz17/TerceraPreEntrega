@@ -109,6 +109,50 @@ body{
     font-size: 15px;
 }
 
+.borrar{
+    background-color: rgb(175, 0, 0);
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 5px;
+    font-size: 2.5vh;
+}
+
+.editar{
+    background-color: rgb(2, 136, 49);
+}
+
+.borrar_editar{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.container_agregar{
+    width: 89%;
+    display: flex;
+    justify-content: right;
+    /* background-color: black; */
+    padding: 10px;
+}
+
+.btn_agregar{
+    background-color: var(--cuatro);
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 2.5vh;
+    font-weight: bold;
+    color: #0468BF;
+    margin-bottom: 20px;
+    border: #52B5F2 3px solid;
+}
+
+.btn_agregar:hover{
+    background-color: #0468BF;
+    color: white;
+    border-color: white;
+}
+
 .icon{
     width: 30px;
     height: 30px;

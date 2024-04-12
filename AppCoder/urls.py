@@ -6,10 +6,12 @@ urlpatterns = [
      
     # model Curso
     
-    path("alta_curso" , views.curso_formulario, name="alta_curso"),  
+    path("alta_curso" , views.curso_formulario, name = "alta_curso"),  
     path("ver_cursos" , views.ver_cursos , name = "cursos"),
-    path("buscar_curso" , views.buscar_curso , name= "buscar_curso"),
+    path("buscar_curso" , views.buscar_curso , name = "buscar_curso"),
     path("buscar" , views.buscar , name = "buscar"),
+    path("eliminar_curso/<int:id>" , views.eliminar_curso , name = "eliminar_curso"),
+    path("editar_curso/<int:id>" , views.editar_curso , name = "editar_curso"),
     
     # model Alumno
 

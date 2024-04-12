@@ -14,22 +14,34 @@
         <table class="table">
             <thead>
                 <tr class="titulo-table">
-                    <th>id</th>
+                    <!-- <th>id</th> -->
                     <th>Nombre</th>
                     <th>Camada</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 {% for n in cursos %}
                 <tr>
-                    <th scope="row">{{n.id}}</th>
+                    <!-- <th scope="row">{{n.id}}</th> -->
                     <th>{{n.nombre}}</th>
                     <th>{{n.camada}}</th>
+                    <th>
+                        <div class="borrar_editar">
+                            <a class="borrar" href="{% url 'eliminar_curso' n.id %}">Borrar</a>
+                            <a class="editar borrar" href="{% url 'editar_curso' n.id %}">Editar</a>
+                        </div>
+                    </th>
+                    <!-- eliminar_curso se relaciona con el name = eliminar_curso de las urls -->
                 </tr>
                 {% endfor %}
             </tbody>
     
         </table>
+    </div>
+
+    <div class="container_agregar">
+        <a class="btn_agregar" href="alta_curso">Agregar Curso</a>
     </div>
 
 

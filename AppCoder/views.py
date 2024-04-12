@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from AppCoder.models import Curso
 from AppCoder.models import Alumno
 from AppCoder.models import Profesor
@@ -101,18 +102,56 @@ def buscar(request):
         # return HttpResponse("Ingrese el nombre del curso")
         return render(request , "inicio.html")
     
+def eliminar_curso(request , id):
+    
+    curso = Curso.objects.get(id = id)
+    curso.delete()       
+    
+    curso = Curso.objects.all()
+    
+    return render(request , "cursos.html" , {"cursos" : curso}) 
+
+def editar_curso(request , id):
+    
+    curso = Curso.objects.get(id = id)
+    
+    if request.method == "POST":
+    
+        mi_formulario = Curso_formulario(request.POST)
+        
+        if mi_formulario.is_valid():
+            
+            datos = mi_formulario.cleaned_data
+            curso.nombre = datos["nombre"]
+            curso.camada = datos["camada"]
+            curso.save()
+            
+            curso = Curso.objects.all()
+    
+        return render( request , "cursos.html" , {"cursos" : curso})
+    
+    else:
+        
+        mi_formulario = Curso_formulario(initial = {"nombre" : curso.nombre ,"camada" : curso.camada})
+    
+    return render(request , "editar_curso.html" , {"mi_formulario" : mi_formulario , "curso" : curso})
+    
 
 def alta_profesor(request , nombre , apellido , curso):
+    
     profesor = Profesor(nombre = nombre.title() , apellido = apellido.title() , curso = curso.title())
     profesor.save()
     texto = f"Se guardó en la Base de Datos el Profesor: {profesor.nombre} {profesor.apellido}. Curso de {profesor.curso}"
+    
     return HttpResponse(texto)
 
 def ver_profesores(request):
+    
     profesores = Profesor.objects.all()
     diccionario = {"profesores" : profesores}
     plantilla = loader.get_template("profesores.html")
     documento = plantilla.render(diccionario)
+    
     return HttpResponse(documento)
 
 
@@ -123,11 +162,13 @@ def profesor_formulario(request):
         mi_formulario = Profesor_formulario(request.POST)
         
         if mi_formulario.is_valid():
+            
             datos = mi_formulario.cleaned_data
             curso_id = datos["curso"]
             nombre_curso = Curso.objects.get(pk=curso_id).nombre
             profesor = Profesor(nombre=datos["nombre"].title(), apellido=datos["apellido"].title(), curso=nombre_curso.title())
             profesor.save()
+            
             return render(request, "form_profesores.html")
         
     else:
