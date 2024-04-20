@@ -10,21 +10,38 @@
     <div class="container-alumnos">
 
     {% for n in profesores %}
-                <div class="card">
-                    <div class="alumno">
-                        <img class="perfil" src="{% static 'AppCoder/assets/img/profesor.png' %}" alt="">
-                    </div>
-                    <div class="card-body">
-                        <h4>{{n.nombre}} {{n.apellido}}</h4>
-                        <div class="borrar-editar">
-                            <a href="{% url 'eliminar_profesor' n.id%}" class="borrar">Eliminar</a>
-                            <a href="{% url 'editar_profesor' n.id%}" class="editar">Editar</a>
-                        </div>
-                    </div>
-                </div>    
+        <div class="card">
+            <div class="alumno">
+                <img class="perfil" src="{% static 'AppCoder/assets/img/profesor.png' %}" alt="">
+            </div>
+            <div class="card-body">
+                <h4>{{n.nombre}} {{n.apellido}}</h4>
+                <div class="borrar-editar">
+                    <a href="{% url 'eliminar_profesor' n.id%}" class="borrar">Eliminar</a>
+                    <a href="{% url 'editar_profesor' n.id%}" class="editar">Editar</a>
+                </div>
+            </div>
+        </div>    
     {% endfor %}
-
     </div>
 </main>
+
+<div class="btn-añadir">
+    <div class="añadir">
+        <div>
+            <a class="btn_agregar" href="{% url 'alta_profesor' %}">Añadir Profesor</a>
+        </div>
+        <form action="{% url 'resultado_alumno' %}" method="GET" class="busqueda">
+            <input type="text" name="nombre" placeholder="Buscar Alumno" class="lupa">
+            <button type="submit" class="icon-lupa">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="92" height="92" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                    <path d="M21 21l-6 -6" />
+                </svg>
+            </button>
+        </form>
+    </div>
+</div>
 
 {% endblock %}

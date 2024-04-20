@@ -31,7 +31,7 @@ class Profesor(models.Model):
     curso = models.CharField(max_length = 40) 
     
     def __str__(self):
-        return f"Nombre: {self.nombre} {self.apellido} - Curso: {self.curso}"
+        return f"Nombre: {self.nombre} {self.apellido} - Curso: {self.curso} - Email : {self.email} - Contraseña : {self.contraseña}"
     
 
 class Avatar(models.Model):

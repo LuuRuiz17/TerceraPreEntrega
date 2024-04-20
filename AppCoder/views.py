@@ -5,7 +5,7 @@ from AppCoder.models import Alumno
 from AppCoder.models import Profesor
 from django.http import HttpResponse
 from django.template import loader
-from AppCoder.forms import Curso_formulario , UserEditForm
+from AppCoder.forms import Curso_formulario , UserEditForm , ProfesorEditForm
 from .forms import Profesor_formulario
 from .forms import Alumno_formulario
 from django.contrib.auth.forms import AuthenticationForm , UserCreationForm
@@ -260,6 +260,17 @@ def profesor_formulario(request):
         cursos = Curso.objects.all()  
         return render(request, "form_profesores.html", {"cursos": cursos})
 
+def editar_profesor(request , id):
+    profesor = Profesor.objects.get(id=id)
+    usuario = request.user
+    
+    if request.method == "POST":
+        pass
+    else:
+        miFormulario = ProfesorEditForm()
+        return render(request , "editar_profesor.html" , {"miFormulario" : miFormulario , "usuario" : usuario, "profesor": profesor})
+
+        
 def eliminar_profesor(request , id):
     
     profesor = Profesor.objects.get(id = id)
