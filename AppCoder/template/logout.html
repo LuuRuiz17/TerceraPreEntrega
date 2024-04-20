@@ -1,0 +1,12 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+    <div>
+        <h2 class="titulo-logout">¡Gracias, vuelva pronto!</h2>
+        <div class="container-btn">
+            <a href="{% url 'principal' %}" class="btn">Volver</a>
+        </div>
+    </div>
+{% endblock %}

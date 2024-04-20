@@ -1,0 +1,27 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+    <div class="presentacion">
+
+        <div>
+            <img class="img_study dos" src="{% static 'AppCoder/assets/img/study.jpg' %}" alt="">
+        </div>
+
+        <div class="contenedor_presentacion">
+            <h3>Cursos online en vivo para transformar tu realidad en tiempo récord.</h3>
+        </div>
+
+        <div>
+            <img class="img_study uno" src="{% static 'AppCoder/assets/img/study_3.jpg' %}" alt="">
+        </div>
+
+
+        <div class="contenedor_presentacion dos">
+            <h3>Clases online en vivo dictadas por expertos de la industria, enfoque 100% práctico, mentorías personalizadas y acceso a una comunidad de +280.000 estudiantes.</h3>
+        </div>
+    
+    </div>
+    
+{% endblock %}

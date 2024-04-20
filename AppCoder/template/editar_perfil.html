@@ -1,0 +1,22 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<h2 class="titulo-editar-perfil">Editar Perfil "{{usuario.username|capfirst}}"</h2>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="contenedor-editar-perfil">
+        <table class="tabla">
+            {{miFormulario.as_table}}
+        </table>
+        <div class="contenedor-btn">
+            <button class="boton">Enviar</button>
+        </div>
+    </div>
+
+</form>
+
+{% endblock %}

@@ -3,25 +3,40 @@
 {% load static %}
 
 {% block contenido %}
-    <div class="presentacion">
 
-        <div>
-            <img class="img_study dos" src="{% static 'AppCoder/assets/img/study.jpg' %}" alt="">
-        </div>
+    <h2>{{mensaje}}</h2>
+            <div class="container-alumnos">
+                <div class="card">
+                    <div class="alumno">
+                        <img src="{{ url }}" alt="" class="grande">
+                    </div>
+                    <div class="card-body">
+                        <p><span>Nombre de Usuario:</span> {{usuario}}</p>
+                        <div class="container-btn2">
+                            <!-- <button href="" class="enviar">Enviar Mensaje</button> -->
+                            <form class="form" method="post" action="{% url 'Logout' %}">
+                                <!-- Solución al error 405. Usar siempre el método POST -->
+                                {% csrf_token %}
+                                <button href="{% url 'Logout' %}" class="borrar">Cerrar Sesión</button>
+                            </form>
+                            <a href="{% url 'editar_perfil' %}" class="editar_perfil">Editar</a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
 
-        <div class="contenedor_presentacion">
-            <h3>Cursos online en vivo para transformar tu realidad en tiempo récord.</h3>
-        </div>
 
-        <div>
-            <img class="img_study uno" src="{% static 'AppCoder/assets/img/study_3.jpg' %}" alt="">
-        </div>
-
-
-        <div class="contenedor_presentacion dos">
-            <h3>Clases online en vivo dictadas por expertos de la industria, enfoque 100% práctico, mentorías personalizadas y acceso a una comunidad de +280.000 estudiantes.</h3>
-        </div>
-    
-    </div>
-    
 {% endblock %}
+
+<div class="card">
+    <div class="alumno">
+        <img class="perfil" src="{% static 'AppCoder/assets/img/alumno.png' %}" alt="">
+    </div>
+    <div class="card-body">
+        <h4>{{n.nombre}} {{n.apellido}}</h4>                      
+    </div>
+    <div container-btn>
+        <a class="btn">Ver Alumno</a>
+    </div>
+</div>   

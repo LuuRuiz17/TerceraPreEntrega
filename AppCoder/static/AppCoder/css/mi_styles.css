@@ -72,6 +72,37 @@ body{
     z-index: 2;
 }
 
+.resultado_alumnos{
+    position: relative;
+    width: 230px;
+    height: 300px;
+    padding: 20px;
+    background-image: url("/static/AppCoder/assets/img/sound.jpg");
+    border-radius: 10px;
+    border: white 1px groove;
+    overflow: hidden;
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+
+.resultado_alumnos::before{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(32, 32, 32, 0.5);
+    backdrop-filter: blur(5px);
+    content: "";
+    z-index: 1;
+}
+
+.resultado_alumnos p{
+    z-index: 2;
+    font-weight: bolder;
+}
+
 .resultado_curso p{
     z-index: 2;
     font-weight: bolder;
@@ -83,6 +114,11 @@ body{
     width: 80%;
     z-index: 3;
     font-weight: bolder;
+}
+
+.resultado_curso img{
+    position: absolute;
+    z-index: 3;
 }
 
 .resultado_curso::before{
@@ -114,13 +150,45 @@ body{
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 3px;
-    padding-bottom: 3px;
+    padding-bottom: 5px;
     border-radius: 5px;
     font-size: 2.5vh;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+button.enlace{
+    background-color: #0468BF;
+    width: max-content;
+    padding: 15px;
+    height: 100%;
+    color: white;
+    border: none; 
 }
 
 .editar{
-    background-color: rgb(2, 136, 49);
+    background-color: #c0c405;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    font-size: 2.5vh;
+    color: white;
+    font-weight: bold;
+}
+
+.editar_perfil{
+    background-color: #028831;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 5px;
+    font-size: 2.5vh;
+    color: white;
+    font-weight: bold;
 }
 
 .borrar_editar{
@@ -176,6 +244,7 @@ body{
 }
 
 .enlace{
+    font-size: 3vh;
     width: max-content;
     text-decoration: none;
     padding: 15px;
@@ -343,6 +412,7 @@ main{
     width: 120px;
     height: 120px;
     border-radius: 50%;
+    z-index: 2;
 }
 
 .container-btn{
@@ -353,11 +423,31 @@ main{
     justify-content: center;
 }
 
+.btn-añadir{
+    width: 100%;
+    column-gap: 30px;
+    margin-bottom: 3vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.container-btn2{
+    width: 100%;
+    padding: 5px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    row-gap: 5px;
+}
+
 .btn{
     border: #0468BF 3px solid;
     background-color: #27A4F2;
     color: white;
     font-weight: bold;
+    border-radius: 8px;
+    padding: 10px;
 }
 
 .btn:hover{
@@ -658,4 +748,95 @@ main{
         margin-top: 10px;
     }
 
+}
+
+.busqueda{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.añadir{
+    margin-top: 4vh;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.titulo-editar-perfil{
+    margin-top: 2vh;
+    margin-bottom: 4vh;
+    font-size: 3.8vh;
+    font-family: cursive;
+    text-align: center;
+    color: #91E0F2;
+}
+
+table {
+    width: 10vw;
+    margin-top: 2vh;
+    background-color: #27A4F2;
+    margin: auto;
+    border-collapse: collapse;
+    /* border: #0468BF solid 10px; */
+    border-radius: 8px;
+}
+
+td, th {
+    padding: 20px;
+}
+
+input{
+    border: none;
+    padding: 1vh;
+    width: 350px;
+}
+
+.contenedor-btn{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.contenedor-editar-perfil{
+    display: grid;
+    justify-content: center;
+    row-gap: 20px;
+}
+
+.boton{
+    width: 120px;
+    border: #0468BF 3px solid;
+    background-color: #27A4F2;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 3vh;
+}
+
+.imagen{
+    width: 6vh;
+    height: 6vh;
+    border-radius: 50%;
+    border: #6BCCF2 3px double;
+}
+
+.titulo-logout{
+    font-size: 5vh;
+    font-family: cursive;
+    text-align: center;
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+}
+
+span{
+    font-weight: bold;
+}
+
+.grande{
+    width: 13vh;
+    height: 13vh;
+    border: #0468BF groove 3px;
+    border-radius: 50%;
 }

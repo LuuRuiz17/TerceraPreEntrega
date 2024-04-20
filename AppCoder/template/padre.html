@@ -20,13 +20,32 @@
     <body>
 
         <nav class="navegacion">
-            
-            <a class="enlace" href="{% url 'inicio' %}">Inicio</a>                
-            <a class="enlace" href="{% url 'cursos' %}">Cursos</a>
-            <a class="enlace" href="{% url 'alumnos' %}">Alumnos</a>
-            <a class="enlace" href="{% url 'profesores' %}">Profesores</a>
 
-            <form action="{% url 'buscar' %}" method="GET" class="busqueda">
+            {% if request.user.is_authenticated %}
+
+                <img src="{{ url }}" alt="" class="imagen">
+                
+                <a class="enlace" href="{% url 'principal' %}">Inicio</a> 
+                <a class="enlace" href="{% url 'cursos' %}">Cursos</a>
+                <a class="enlace" href="{% url 'alumnos' %}">Alumnos</a>
+                <a class="enlace" href="{% url 'profesores' %}">Profesores</a>
+
+                <form action="{% url 'Logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="enlace">Salir</button>
+                </form>
+
+            {% else %}
+
+                <a class="enlace" href="{% url 'principal' %}">Inicio</a> 
+                <a class="enlace" href="{% url 'cursos' %}">Cursos</a>
+                <a class="enlace" href="{% url 'alumnos' %}">Alumnos</a>
+                <a class="enlace" href="{% url 'profesores' %}">Profesores</a>
+                <a class="enlace" href="{% url 'login' %}">Ingresar</a>
+
+            {% endif %}
+            <!-- <a href=""></a> -->
+            <form action="{% url 'resultado_curso' %}" method="GET" class="busqueda">
                 <input type="text" name="nombre" placeholder="Buscar Curso" class="lupa">
                 <button type="submit" class="icon-lupa">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="92" height="92" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -35,9 +54,9 @@
                         <path d="M21 21l-6 -6" />
                     </svg>
                 </button>
-            </form>
-            
+            </form>   
         </nav>
+        
 
         <header class="header">
             <div class="container-fluid">

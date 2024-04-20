@@ -16,7 +16,10 @@
                     </div>
                     <div class="card-body">
                         <h4>{{n.nombre}} {{n.apellido}}</h4>
-                        <a class="btn">Ver Profesor</a>
+                        <div class="borrar-editar">
+                            <a href="{% url 'eliminar_profesor' n.id%}" class="borrar">Eliminar</a>
+                            <a href="{% url 'editar_profesor' n.id%}" class="editar">Editar</a>
+                        </div>
                     </div>
                 </div>    
     {% endfor %}
